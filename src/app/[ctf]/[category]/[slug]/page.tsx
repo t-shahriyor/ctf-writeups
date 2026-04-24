@@ -7,6 +7,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeHighlight from "rehype-highlight";
 import { Toc } from "@/components/Toc";
 import { ChevronRight } from "lucide-react";
+import { CodeBlock } from "@/components/CodeBlock";
 
 export async function generateStaticParams() {
   const all = getAllWalkthroughs();
@@ -67,6 +68,9 @@ export default async function WalkthroughPage({
           <ReactMarkdown 
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeSlug, rehypeHighlight]}
+            components={{
+              pre: CodeBlock
+            }}
             urlTransform={(url) => {
               // React-markdown default basic url check
               const cleanUrl = url.replace(/^\s+|\s+$/g, '');
