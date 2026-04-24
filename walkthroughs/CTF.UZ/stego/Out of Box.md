@@ -139,5 +139,3 @@ the trick in this challenge was not classical steganography like hidden bits or 
 the real trick was that the jpeg was artificially limited by its stored height value.  
 by editing the **sof0 height field** in hex, we forced the image viewer to render more of the actual image data, which revealed the hidden bottom part and the flag.
 
----
-
