@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CTF.UZ/stego/Out of Box.md",
+                "file": "CUTS CTF 2026/misc/The Cryptographer's Estate.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Out of Box"
+              "title": "The Cryptographer's Estate"
             }
           }
         ]
@@ -174,6 +174,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-git:Open Git source control": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -183,8 +184,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "a3a1a46033088f43",
+  "active": "849557ef083fd03d",
   "lastOpenFiles": [
+    "CTF.UZ/stego/Out of Box.md",
+    "CUTS CTF 2026/misc/The Cryptographer's Estate.md",
     "CTF.UZ/stego/attachments/stega_hiddesn.jpg",
     "CTF.UZ/stego/attachments/Pasted image 20260420113107.png",
     "CTF.UZ/stego/attachments/Pasted image 20260420111605 1.png",
@@ -194,7 +197,6 @@
     "stega_hidden.jpg",
     "Pasted image 20260424155144.jpg",
     "CTF.UZ/attachments",
-    "CTF.UZ/stego/Out of Box.md",
     "CTF.UZ/stego",
     "CUTS CTF 2026/misc/Trench Talk.md",
     "Untitled 35",
