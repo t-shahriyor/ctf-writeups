@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CUTS CTF 2026/misc/Trench Talk.md",
+                "file": "CTF.UZ/stego/Out of Box.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Trench Talk"
+              "title": "Out of Box"
             }
           }
         ]
@@ -183,8 +183,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "a3a1a46033088f43",
+  "active": "849557ef083fd03d",
   "lastOpenFiles": [
+    "stega_hidden.jpg",
+    "Pasted image 20260424155144.jpg",
+    "CTF.UZ/attachments",
+    "CTF.UZ/stego/Out of Box.md",
+    "CTF.UZ/stego",
+    "CUTS CTF 2026/misc/Trench Talk.md",
     "Untitled 35",
     "Untitled 34",
     "Untitled 33",
@@ -193,13 +199,9 @@
     "Untitled 30",
     "Untitled 29",
     "Untitled 28",
-    "Untitled 27",
-    "Untitled 26",
-    "Untitled 25",
     "CTF.UZ/web/Hashkent.md",
     "CTF.UZ/web/Bad reaction.md",
     "CUTS CTF 2026/web/Alex R. blog.md",
-    "CUTS CTF 2026/pwn/Back to Basics.md",
-    "CUTS CTF 2026/misc/Trench Talk.md"
+    "CUTS CTF 2026/pwn/Back to Basics.md"
   ]
 }
