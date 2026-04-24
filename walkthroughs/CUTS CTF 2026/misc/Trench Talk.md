@@ -1,10 +1,3 @@
----
-title: Trench Talk
-category: misc
-ctf: CUTS CTF 2026
-points: 1000
-author: Un1C0rN
----
 
 ## Challenge Summary
 
