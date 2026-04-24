@@ -159,12 +159,3 @@ by editing the **sof0 height field** in hex, we forced the image viewer to rende
     
 8. read the flag from the revealed lower part
     
-
----
-
-## short conclusion
-
-this challenge is a good example of a **cropped-by-header** image trick.
-
-the file already contained the hidden content, but the jpeg header told image viewers to show only a smaller area.  
-once the height was increased manually, the full picture became visible and the flag was recovered.
