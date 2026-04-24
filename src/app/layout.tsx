@@ -24,9 +24,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} min-h-screen flex flex-col md:flex-row bg-[var(--color-bg)] w-full text-[var(--color-text)]`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true}>
-          <Sidebar data={sidebarData} className="hidden md:flex w-72 flex-col fixed inset-y-0 left-0 bg-[var(--color-bg-sidebar)] border-r border-[var(--color-border)] z-20" />
+          <Sidebar data={sidebarData} className="w-full md:w-72 md:fixed md:inset-y-0 md:left-0 bg-[var(--color-bg-sidebar)] border-b md:border-r md:border-b-0 border-[var(--color-border)] z-20 shrink-0" />
           
-          <main className="flex-1 md:pl-72 flex flex-col min-h-screen max-w-[1400px]">
+          <main className="flex-1 md:pl-72 flex flex-col min-h-screen max-w-[1400px] w-full p-6 md:p-8">
             {children}
           </main>
         </ThemeProvider>

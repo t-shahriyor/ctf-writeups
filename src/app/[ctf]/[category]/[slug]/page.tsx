@@ -83,7 +83,7 @@ export default async function WalkthroughPage({
                   }
                 }
 
-                if (src.startsWith('/')) {
+                if (typeof src === 'string' && src.startsWith('/')) {
                   src = `${runtimeBasePath}${src}`;
                 }
                 

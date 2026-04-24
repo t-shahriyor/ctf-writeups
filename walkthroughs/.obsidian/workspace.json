@@ -11,14 +11,12 @@
             "id": "849557ef083fd03d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "CUTS CTF 2026/misc/The Cryptographer's Estate.md",
-                "mode": "source",
-                "source": false
+                "file": "CTF.UZ/stego/attachments/Pasted image 20260420111605 1.png"
               },
-              "icon": "lucide-file",
-              "title": "The Cryptographer's Estate"
+              "icon": "lucide-image",
+              "title": "Pasted image 20260420111605 1"
             }
           }
         ]
@@ -188,8 +186,8 @@
   "lastOpenFiles": [
     "CUTS CTF 2026/misc/attachments/Pasted image 20260424173045.png",
     "CUTS CTF 2026/misc/attachments/map.png",
-    "CTF.UZ/stego/Out of Box.md",
     "CUTS CTF 2026/misc/The Cryptographer's Estate.md",
+    "CTF.UZ/stego/Out of Box.md",
     "CTF.UZ/stego/attachments/stega_hiddesn.jpg",
     "CTF.UZ/stego/attachments/Pasted image 20260420113107.png",
     "CTF.UZ/stego/attachments/Pasted image 20260420111605 1.png",
