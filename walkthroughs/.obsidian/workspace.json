@@ -4,19 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "fda07cfca441bec3",
+        "id": "09280441f0b28696",
         "type": "tabs",
         "children": [
           {
-            "id": "849557ef083fd03d",
+            "id": "7b8130e9a26661b6",
             "type": "leaf",
             "state": {
-              "type": "image",
-              "state": {
-                "file": "CTF.UZ/stego/attachments/Pasted image 20260420111605 1.png"
-              },
-              "icon": "lucide-image",
-              "title": "Pasted image 20260420111605 1"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
