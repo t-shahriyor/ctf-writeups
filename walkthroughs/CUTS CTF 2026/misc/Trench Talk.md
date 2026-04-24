@@ -4,7 +4,6 @@ category: misc
 ctf: CUTS CTF 2026
 points: 1000
 author: Un1C0rN
-flag: CUTS{4bys5_1n_7h3_chunk5_4nd}
 ---
 
 ## Challenge Summary

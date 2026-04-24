@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CUTS CTF 2026/web/Alex R. blog.md",
+                "file": "CUTS CTF 2026/misc/Trench Talk.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Alex R. blog"
+              "title": "Trench Talk"
             }
           }
         ]
@@ -185,10 +185,10 @@
   },
   "active": "849557ef083fd03d",
   "lastOpenFiles": [
-    "CUTS CTF 2026/web",
-    "CUTS CTF 2026/web/Alex R. blog.md",
-    "CTF.UZ/web/Bad reaction.md",
     "CTF.UZ/web/Hashkent.md",
+    "CTF.UZ/web/Bad reaction.md",
+    "CUTS CTF 2026/web/Alex R. blog.md",
+    "CUTS CTF 2026/web",
     "CTF.UZ/web",
     "CUTS CTF 2026/pwn/Back to Basics.md",
     "CTF.UZ",
