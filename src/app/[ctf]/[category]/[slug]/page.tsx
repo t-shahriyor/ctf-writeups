@@ -69,16 +69,37 @@ export default async function WalkthroughPage({
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeSlug, rehypeHighlight]}
             components={{
-              pre: CodeBlock
-            }}
-            urlTransform={(url) => {
-              // React-markdown default basic url check
-              const cleanUrl = url.replace(/^\s+|\s+$/g, '');
-              if (cleanUrl.startsWith('/')) {
-                return `${process.env.NEXT_PUBLIC_BASE_PATH || ''}${cleanUrl}`;
+              pre: CodeBlock,
+              img: ({ node, ...props }) => {
+                let src = props.src || '';
+                
+                // Fallback to reading basePath from the URL structure if Next.js env drops during hydration
+                let runtimeBasePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+                if (!runtimeBasePath && typeof window !== 'undefined') {
+                  const pathParts = window.location.pathname.split('/');
+                  // If we are hosted on a GitHub pages sub-project (like /ctf-writeups/...)
+                  if (pathParts.length > 2 && !window.location.hostname.includes('localhost')) {
+                    runtimeBasePath = `/${pathParts[1]}`;
+                  }
+                }
+
+                if (src.startsWith('/')) {
+                  src = `${runtimeBasePath}${src}`;
+                }
+                
+                return (
+                  <img 
+                    {...props} 
+                    src={src} 
+                    fetchPriority="high" 
+                    decoding="sync" 
+                    loading="eager"
+                    className="rounded-xl my-6 max-w-full border border-[var(--color-border)] shadow-md"
+                  />
+                );
               }
-              return cleanUrl;
             }}
+            urlTransform={(url) => url.replace(/^\s+|\s+$/g, '')}
           >
             {walkthrough.content}
           </ReactMarkdown>
