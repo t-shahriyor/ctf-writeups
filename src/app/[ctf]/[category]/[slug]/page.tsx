@@ -63,11 +63,18 @@ export default async function WalkthroughPage({
           </div>
         </header>
 
-        {/* Markdown Body */}
-        <div className="prose prose-invert max-w-none">
+        <div className="prose max-w-none">
           <ReactMarkdown 
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeSlug, rehypeHighlight]}
+            urlTransform={(url) => {
+              // React-markdown default basic url check
+              const cleanUrl = url.replace(/^\s+|\s+$/g, '');
+              if (cleanUrl.startsWith('/')) {
+                return `${process.env.NEXT_PUBLIC_BASE_PATH || ''}${cleanUrl}`;
+              }
+              return cleanUrl;
+            }}
           >
             {walkthrough.content}
           </ReactMarkdown>

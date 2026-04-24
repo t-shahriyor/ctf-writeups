@@ -1,29 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #3b82f6; /* Blue for brand/accents */
-  --color-bg: #14161a; /* Gitbook-ish dark gray background */
-  --color-bg-sidebar: #1b1e24; /* Slightly lighter for sidebar */
-  --color-border: #2d313a;
-  --color-text: #d4d7dc; /* Light gray text */
-  --color-heading: #ffffff;
-  --color-muted: #8b92a5;
+  --color-brand: #0ea5e9; /* Softer, lighter blue */
+  --color-bg: #ffffff; /* Light mode default */
+  --color-bg-sidebar: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-text: #334155; 
+  --color-heading: #0f172a;
+  --color-muted: #64748b;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+}
+
+.dark {
+  --color-bg: #111318;
+  --color-bg-sidebar: #171a21;
+  --color-border: #282c35;
+  --color-text: #cbd5e1;
+  --color-heading: #f8fafc;
+  --color-muted: #64748b;
 }
 
 @layer base {
   body {
-    @apply bg-[var(--color-bg)] text-[var(--color-text)] font-sans antialiased;
+    @apply bg-[var(--color-bg)] text-[var(--color-text)] font-sans antialiased transition-colors duration-300;
   }
 }
 
 .prose h1, .prose h2, .prose h3, .prose h4 {
-  @apply text-[var(--color-heading)] font-semibold mb-4 mt-8 scroll-m-20;
+  @apply text-[var(--color-heading)] font-semibold mb-4 mt-8 scroll-m-20 tracking-tight;
 }
 .prose p {
   @apply mb-4 leading-relaxed;
 }
 .prose a {
-  @apply text-[var(--color-brand)] no-underline hover:underline;
+  @apply text-[var(--color-brand)] no-underline hover:underline transition-colors;
 }
 .prose ul {
   @apply list-disc list-outside ml-6 mb-4 marker:text-[var(--color-muted)];
@@ -35,28 +46,31 @@
   @apply mb-1;
 }
 .prose pre {
-  @apply bg-[#0d0f12] border border-[var(--color-border)] rounded-md p-4 mb-4 overflow-x-auto text-sm text-[var(--color-text)];
+  @apply bg-[#0f1115] border border-[var(--color-border)] rounded-xl p-4 mb-4 overflow-x-auto text-sm text-[#cbd5e1] shadow-sm;
 }
 .prose code {
-  @apply bg-[#2d313a] px-1.5 py-0.5 rounded text-sm text-[var(--color-heading)];
+  @apply bg-black/5 dark:bg-white/10 px-1.5 py-0.5 rounded-md text-sm text-[var(--color-heading)];
 }
 .prose pre code {
-  @apply bg-transparent p-0;
+  @apply bg-transparent p-0 text-inherit;
 }
 .prose blockquote {
-  @apply border-l-4 border-[var(--color-brand)] bg-[#1b1e24] py-2 pl-4 mb-4 italic rounded-r-md text-[var(--color-muted)];
+  @apply border-l-4 border-[var(--color-brand)] bg-sky-50 dark:bg-sky-950/20 py-2 pl-4 mb-4 italic rounded-r-xl text-[var(--color-muted)];
 }
 .prose img {
-  @apply rounded-lg my-6 max-w-full border border-[var(--color-border)];
+  @apply rounded-xl my-6 max-w-full border border-[var(--color-border)] shadow-md;
 }
 .prose table {
-  @apply w-full border-collapse mb-6;
+  @apply w-full border-collapse mb-6 overflow-hidden rounded-xl border border-[var(--color-border)] block;
 }
 .prose th {
-  @apply bg-[#1b1e24] border border-[var(--color-border)] p-2 text-left text-[var(--color-heading)];
+  @apply bg-[var(--color-bg-sidebar)] border-b border-[var(--color-border)] p-3 text-left text-[var(--color-heading)] font-semibold;
 }
 .prose td {
-  @apply border border-[var(--color-border)] p-2;
+  @apply border-b border-[var(--color-border)] p-3;
+}
+.prose tr:last-child td {
+  @apply border-0;
 }
 
 /* Base styles for syntax highlighting */

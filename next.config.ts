@@ -11,6 +11,9 @@ if (isGithubActions) {
   }
 }
 
+// Map it so it's available to client AND server components
+process.env.NEXT_PUBLIC_BASE_PATH = basePath;
+
 const nextConfig: NextConfig = {
   output: "export",
   images: { unoptimized: true },

@@ -52,13 +52,6 @@ export function Toc({ headings }: { headings: TOCItem[] }) {
           </li>
         ))}
       </ul>
-      <div className="mt-8 pt-8 border-t border-[var(--color-border)]">
-        <div className="text-xs text-[var(--color-heading)] font-semibold mb-3">Was this helpful?</div>
-        <div className="flex gap-2 text-[var(--color-muted)]">
-          <button className="hover:bg-[#2d313a] p-1.5 rounded outline outline-1 outline-[var(--color-border)]">:) </button>
-          <button className="hover:bg-[#2d313a] p-1.5 rounded outline outline-1 outline-[var(--color-border)]">:( </button>
-        </div>
-      </div>
     </div>
   );
 }
