@@ -11,10 +11,14 @@
             "id": "7b8130e9a26661b6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "🎓 CUTS CTF 2026/web/Alex R. blog.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Alex R. blog"
             }
           }
         ]
@@ -182,9 +186,14 @@
   },
   "active": "a3a1a46033088f43",
   "lastOpenFiles": [
-    "CUTS CTF 2026/misc/attachments/Pasted image 20260424173045.png",
-    "CUTS CTF 2026/misc/attachments/map.png",
-    "CUTS CTF 2026/misc/The Cryptographer's Estate.md",
+    "g/dsf.md",
+    "ds/ds.md",
+    "ds",
+    "🎓 CUTS CTF 2026/web/Alex R. blog.md",
+    "g",
+    "🎓 CUTS CTF 2026/misc/attachments/Pasted image 20260424173045.png",
+    "🎓 CUTS CTF 2026/misc/attachments/map.png",
+    "🎓 CUTS CTF 2026/misc/The Cryptographer's Estate.md",
     "CTF.UZ/stego/Out of Box.md",
     "CTF.UZ/stego/attachments/stega_hiddesn.jpg",
     "CTF.UZ/stego/attachments/Pasted image 20260420113107.png",
@@ -196,17 +205,14 @@
     "Pasted image 20260424155144.jpg",
     "CTF.UZ/attachments",
     "CTF.UZ/stego",
-    "CUTS CTF 2026/misc/Trench Talk.md",
+    "🎓 CUTS CTF 2026/misc/Trench Talk.md",
     "Untitled 35",
     "Untitled 34",
     "Untitled 33",
     "Untitled 32",
     "Untitled 31",
-    "Untitled 30",
-    "Untitled 29",
     "CTF.UZ/web/Hashkent.md",
     "CTF.UZ/web/Bad reaction.md",
-    "CUTS CTF 2026/web/Alex R. blog.md",
-    "CUTS CTF 2026/pwn/Back to Basics.md"
+    "🎓 CUTS CTF 2026/pwn/Back to Basics.md"
   ]
 }
