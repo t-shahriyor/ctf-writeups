@@ -141,21 +141,3 @@ by editing the **sof0 height field** in hex, we forced the image viewer to rende
 
 ---
 
-## solve flow
-
-1. open `stega_hidden.jpg`
-    
-2. notice the visual hint that something may be hidden below
-    
-3. inspect the jpeg header in a hex editor
-    
-4. find the `ff c0` marker
-    
-5. identify the height field at `+5 +6`
-    
-6. change the height from `02 00` to `3E 80`
-    
-7. save and reopen the image
-    
-8. read the flag from the revealed lower part
-    
