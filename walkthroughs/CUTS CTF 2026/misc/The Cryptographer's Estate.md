@@ -4,8 +4,8 @@
 
 ## 🧩 Given Artifacts 
 - **Vault**  `8608ac47d1cdd7b345ca93d1d9746ed534d2243d217b9d2839cac1f41f085010f268a723d88f88e867`
-- .wav
-- .png
+- estate.wav
+- map.png
 
 
 ---
