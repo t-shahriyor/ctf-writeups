@@ -104,10 +104,19 @@ export function getSidebarData(): Record<string, CTFData> {
 // Convert Obsidian syntax & fix local normal paths
 export function fixImagePaths(content: string) {
   // 1. ![[image.png]] or ![[attachments/image.png]]
-  let fixed = content.replace(/!\[\[(?:.*?\/)?(.*?)\]\]/g, '![image](/attachments/$1)');
+  let fixed = content.replace(/!\[\[(?:.*?\/)?(.*?)\]\]/g, (match, p1) => {
+    return `![image](/attachments/${encodeURIComponent(p1)})`;
+  });
   
   // 2. ![alt](../attachments/image.png) or ![alt](attachments/image.png)
-  fixed = fixed.replace(/!\[(.*?)\]\((?:.*?\/)?attachments\/(.*?)\)/g, '![$1](/attachments/$2)');
+  fixed = fixed.replace(/!\[(.*?)\]\((?:.*?\/)?attachments\/(.*?)\)/g, (match, p1, p2) => {
+    try {
+      // Decode first to prevent double encoding if already encoded
+      return `![${p1}](/attachments/${encodeURIComponent(decodeURIComponent(p2))})`;
+    } catch {
+      return `![${p1}](/attachments/${encodeURIComponent(p2)})`;
+    }
+  });
   
   return fixed;
 }
