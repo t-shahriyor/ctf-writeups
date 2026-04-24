@@ -1,7 +1,6 @@
 ---
 title: Back to Basics
 category: pwn
-ctf: CUTS CTF 2026
 author: Pwnzer
 ---
 
