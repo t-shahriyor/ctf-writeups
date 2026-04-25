@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/copy-attachments.mjs",
+    "prebuild": "node scripts/copy-attachments.mjs",
     "dev": "next dev",
-    "build": "node scripts/copy-attachments.js && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },

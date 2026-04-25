@@ -5,6 +5,39 @@ import { slugify } from './utils'; // we'll create this
 
 const WALKTHROUGHS_DIR = path.join(process.cwd(), 'walkthroughs');
 
+function encodePathSegments(filePath: string) {
+  return filePath
+    .split(/[\\/]+/)
+    .filter(Boolean)
+    .map(segment => encodeURIComponent(segment))
+    .join('/');
+}
+
+function getWalkthroughAssetDir(filePath: string) {
+  const relativeDir = path.relative(WALKTHROUGHS_DIR, path.dirname(filePath));
+  return relativeDir === '' ? '' : relativeDir;
+}
+
+function decodePathIfNeeded(filePath: string) {
+  try {
+    return decodeURIComponent(filePath);
+  } catch {
+    return filePath;
+  }
+}
+
+function buildAttachmentUrl(baseDir: string, assetPath: string) {
+  const normalizedAssetPath = decodePathIfNeeded(assetPath)
+    .replace(/\\/g, '/')
+    .replace(/^(?:\.\.\/|\.\/)+/, '')
+    .replace(/^attachments\//, '');
+
+  const basePath = encodePathSegments(baseDir);
+  const assetUrl = encodePathSegments(normalizedAssetPath);
+
+  return `/attachments/${basePath ? `${basePath}/` : ''}${assetUrl}`;
+}
+
 export interface WalkthroughMeta {
   title: string;
   category: string;
@@ -101,23 +134,24 @@ export function getSidebarData(): Record<string, CTFData> {
   return sidebar;
 }
 
-// Convert Obsidian syntax & fix local normal paths
-export function fixImagePaths(content: string) {
-  // 1. ![[image.png]] or ![[attachments/image.png]]
-  let fixed = content.replace(/!\[\[(?:.*?\/)?(.*?)\]\]/g, (match, p1) => {
-    return `![image](/attachments/${encodeURIComponent(p1)})`;
+// Convert Obsidian syntax & fix local attachment paths
+export function fixImagePaths(content: string, filePath: string) {
+  const assetDir = getWalkthroughAssetDir(filePath);
+
+  // 1. ![[image.png]], ![[attachments/image.png]], or ![[image.png|alt]]
+  let fixed = content.replace(/!\[\[(.*?)\]\]/g, (_match, rawTarget) => {
+    const [target] = rawTarget.split('|');
+    const cleanedTarget = target.trim();
+
+    return `![image](${buildAttachmentUrl(assetDir, cleanedTarget)})`;
   });
-  
+
   // 2. ![alt](../attachments/image.png) or ![alt](attachments/image.png)
-  fixed = fixed.replace(/!\[(.*?)\]\((?:.*?\/)?attachments\/(.*?)\)/g, (match, p1, p2) => {
-    try {
-      // Decode first to prevent double encoding if already encoded
-      return `![${p1}](/attachments/${encodeURIComponent(decodeURIComponent(p2))})`;
-    } catch {
-      return `![${p1}](/attachments/${encodeURIComponent(p2)})`;
-    }
+  fixed = fixed.replace(/!\[(.*?)\]\(((?:\.\.\/|\.\/)?attachments\/[^)\s]+(?:\s[^)]*)?)\)/g, (_match, alt, rawPath) => {
+    const cleanedPath = rawPath.trim();
+    return `![${alt}](${buildAttachmentUrl(assetDir, cleanedPath)})`;
   });
-  
+
   return fixed;
 }
 
@@ -133,11 +167,11 @@ export function getWalkthroughBySlug(ctfSlug: string, categorySlug: string, walk
   if (!found) return null;
 
   const fileContents = fs.readFileSync(found.filePath, 'utf8');
-  const { data, content } = matter(fileContents);
+  const { content } = matter(fileContents);
 
   return {
     ...found,
-    content: fixImagePaths(content),
+    content: fixImagePaths(content, found.filePath),
   };
 }
 

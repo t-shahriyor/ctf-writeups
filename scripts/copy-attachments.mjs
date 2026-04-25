@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+import fs from "fs";
+import path from "path";
 
-const WALKTHROUGHS_DIR = path.join(process.cwd(), 'walkthroughs');
-const PUBLIC_ATTACHMENTS_DIR = path.join(process.cwd(), 'public', 'attachments');
+const WALKTHROUGHS_DIR = path.join(process.cwd(), "walkthroughs");
+const PUBLIC_ATTACHMENTS_DIR = path.join(process.cwd(), "public", "attachments");
 
 function ensureDirSync(dirPath) {
   if (!fs.existsSync(dirPath)) {
@@ -37,8 +37,13 @@ function findAndCopyAttachments(dir) {
     const stat = fs.statSync(itemPath);
 
     if (stat.isDirectory()) {
-      if (item === 'attachments') {
-        copyFolderSync(itemPath, PUBLIC_ATTACHMENTS_DIR);
+      if (item === "attachments") {
+        const relativeParentDir = path.relative(WALKTHROUGHS_DIR, path.dirname(itemPath));
+        const outputDir = relativeParentDir
+          ? path.join(PUBLIC_ATTACHMENTS_DIR, relativeParentDir)
+          : PUBLIC_ATTACHMENTS_DIR;
+
+        copyFolderSync(itemPath, outputDir);
       } else {
         findAndCopyAttachments(itemPath);
       }
@@ -47,14 +52,15 @@ function findAndCopyAttachments(dir) {
 }
 
 function main() {
-  console.log('Copying attachments to public/attachments...');
-  // Clear existing attachments to start fresh
+  console.log("Copying attachments to public/attachments...");
+
   if (fs.existsSync(PUBLIC_ATTACHMENTS_DIR)) {
     fs.rmSync(PUBLIC_ATTACHMENTS_DIR, { recursive: true, force: true });
   }
+
   ensureDirSync(PUBLIC_ATTACHMENTS_DIR);
   findAndCopyAttachments(WALKTHROUGHS_DIR);
-  console.log('Done copying attachments.');
+  console.log("Done copying attachments.");
 }
 
 main();

@@ -9,6 +9,8 @@ import { Toc } from "@/components/Toc";
 import { ChevronRight } from "lucide-react";
 import { CodeBlock } from "@/components/CodeBlock";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export async function generateStaticParams() {
   const all = getAllWalkthroughs();
   return all.map((w) => ({
@@ -70,26 +72,16 @@ export default async function WalkthroughPage({
             rehypePlugins={[rehypeSlug, rehypeHighlight]}
             components={{
               pre: CodeBlock,
-              img: ({ node, ...props }) => {
-                let src = props.src || '';
-                
-                // Fallback to reading basePath from the URL structure if Next.js env drops during hydration
-                let runtimeBasePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-                if (!runtimeBasePath && typeof window !== 'undefined') {
-                  const pathParts = window.location.pathname.split('/');
-                  // If we are hosted on a GitHub pages sub-project (like /ctf-writeups/...)
-                  if (pathParts.length > 2 && !window.location.hostname.includes('localhost')) {
-                    runtimeBasePath = `/${pathParts[1]}`;
-                  }
-                }
-
-                if (typeof src === 'string' && src.startsWith('/')) {
-                  src = `${runtimeBasePath}${src}`;
-                }
+              img: (props) => {
+                const src =
+                  typeof props.src === "string" && props.src.startsWith("/")
+                    ? `${basePath}${props.src}`
+                    : props.src || "";
                 
                 return (
                   <img 
                     {...props} 
+                    alt={props.alt || ""}
                     src={src} 
                     fetchPriority="high" 
                     decoding="sync" 
