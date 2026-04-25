@@ -11,10 +11,14 @@
             "id": "7b8130e9a26661b6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "CUTS CTF 2026/misc/Trench Talk.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Trench Talk"
             }
           }
         ]
@@ -182,6 +186,7 @@
   },
   "active": "a3a1a46033088f43",
   "lastOpenFiles": [
+    "CUTS CTF 2026/misc/attachments/out.png",
     "CUTS CTF 2026/misc/attachments/map.png",
     "CUTS CTF 2026/misc/attachments/Pasted image 20260424173045.png",
     "CUTS CTF 2026/pwn/Back to Basics.md",
@@ -209,7 +214,6 @@
     "CTF.UZ/stego/attachments/stega_hidden.jpg",
     "CTF.UZ/stego/attachments",
     "stega_hidden.jpg",
-    "Pasted image 20260424155144.jpg",
     "CTF.UZ/attachments",
     "CTF.UZ/stego",
     "🎓 CUTS CTF 2026/misc/Trench Talk.md",

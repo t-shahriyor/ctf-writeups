@@ -113,6 +113,7 @@ At that point the easiest path was to decode the WAV as SSTV. Once decoded, the 
 ## 7. Recover the flag
 
 Decoded SSTV image result:
+![[out.png]]
 
 ```text
 CUTS{4bys5_1n_7h3_chunk5_4nd}
@@ -132,34 +133,6 @@ In short, the chain was:
 8. decode the WAV as SSTV
 9. read the flag from the recovered image
 
-## Key Commands
-
-Useful commands from the solve:
-
-```bash
-unzip -l trenchtalk.zip
-exiftool trench.png
-strings -n 8 trench.png | head
-```
-
-Minimal Python tasks that mattered:
-
-- parse PNG chunks
-- decode the base64 script
-- reproduce key derivation
-- decrypt `crPT` with AES-CBC
-- save the plaintext as `trench.wav`
-
-Then decode the WAV with an SSTV decoder.
-
-## Lessons Learned
-
-1. Always inspect image metadata before jumping into heavier stego tooling.
-2. Custom PNG chunks are a common place to hide encrypted payloads.
-3. If the author gives you code, trust it as the intended key schedule unless evidence says otherwise.
-4. A decrypted payload is not always the flag itself; it can just be the next stage.
-5. Spectrograms are extremely useful for distinguishing speech, modem tones, Morse, SSTV, and other audio encodings.
-6. CTF stego challenges often combine multiple light layers instead of one deep trick.
 
 ## Final Answer
 
